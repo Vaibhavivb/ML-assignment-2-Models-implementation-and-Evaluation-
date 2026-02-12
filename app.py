@@ -124,7 +124,7 @@ if uploaded_file is not None:
 
         cm = confusion_matrix(y, y_pred)
 
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(4,3))
         sns.heatmap(
             cm,
             annot=True,
@@ -159,4 +159,5 @@ if uploaded_file is not None:
         comparison_df = pd.DataFrame(comparison_results).T
 
         st.dataframe(comparison_df.style.format("{:.3f}"))
+
 
