@@ -57,6 +57,27 @@ model_name = st.sidebar.selectbox(
 
 model = models[model_name]
 
+# --------------------------------------------------
+# Download test dataset (for evaluator)
+# --------------------------------------------------
+st.subheader("Test Dataset")
+
+st.info("Download this dataset and upload it below for evaluation.")
+
+try:
+    with open("test_data.csv", "rb") as file:
+        st.download_button(
+            label="📥 Download test_data.csv",
+            data=file,
+            file_name="test_data.csv",
+            mime="text/csv"
+        )
+except FileNotFoundError:
+    st.error("test_data.csv not found in project folder.")
+
+# --------------------------------------------------
+# File uploader
+# --------------------------------------------------
 uploaded_file = st.file_uploader(
     "Upload Test Dataset (CSV file)",
     type=["csv"]
