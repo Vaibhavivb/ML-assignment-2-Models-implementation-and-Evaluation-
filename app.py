@@ -135,3 +135,28 @@ if uploaded_file is not None:
         ax.set_xlabel("Predicted")
         ax.set_ylabel("Actual")
         st.pyplot(fig)
+
+        # --------------------------------------------------
+        # Model Comparison Table
+        # --------------------------------------------------
+        st.subheader("Model Comparison")
+
+        comparison_results = {}
+
+        for name, mdl in models.items():
+            preds = mdl.predict(X_scaled)
+            probs = mdl.predict_proba(X_scaled)[:, 1]
+
+            comparison_results[name] = {
+                "Accuracy": accuracy_score(y, preds),
+                "AUC": roc_auc_score(y, probs),
+                "Precision": precision_score(y, preds),
+                "Recall": recall_score(y, preds),
+                "F1": f1_score(y, preds),
+                "MCC": matthews_corrcoef(y, preds)
+            }
+
+        comparison_df = pd.DataFrame(comparison_results).T
+
+        st.dataframe(comparison_df.style.format("{:.3f}"))
+
