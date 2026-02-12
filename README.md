@@ -44,6 +44,7 @@ The following six classification models were implemented:
 4) Naive Bayes
 5) Random Forest (Ensemble)
 6) XGBoost (Ensemble)
+   
  Comparison Table of Model Performance
 | ML Model            | Accuracy | AUC   | Precision | Recall | F1    | MCC   |
 | ------------------- | -------- | ----- | --------- | ------ | ----- | ----- |
@@ -53,6 +54,7 @@ The following six classification models were implemented:
 | Naive Bayes         | 0.826    | 0.887 | 0.837     | 0.853  | 0.845 | 0.647 |
 | Random Forest       | 0.832    | 0.921 | 0.838     | 0.863  | 0.850 | 0.658 |
 | XGBoost             | 0.804    | 0.879 | 0.800     | 0.863  | 0.830 | 0.603 |
+
 
 D) Observations on Model Performance
 | Model               | Observation                                                                                    |
